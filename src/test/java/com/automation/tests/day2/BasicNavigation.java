@@ -30,8 +30,37 @@ public class BasicNavigation {
         }else{
             System.out.println("TEST FAILED");
         }
+        Thread.sleep(3000);
+        driver.navigate().to("http://amazon.com");
+
+        if(driver.getTitle().toLowerCase().contains("amazon")){
+            System.out.println("Test PASSED");
+        }else{
+            System.out.println("TEST FAILED");
+        }
+        Thread.sleep(3000);
+        // comeback to google
+        driver.navigate().back();
+
+        verifyEquals(driver.getTitle(),"Google");
+
+        // move forward in the browser history
+        // again, going to amazon
+        Thread.sleep(3000);
+        driver.navigate().forward();
+        Thread.sleep(3000);
 
         driver.close(); // to close browser
 
+
+
+    }
+
+    public static void verifyEquals(String arg1,String arg2){
+        if(arg1.equals(arg2)){
+            System.out.println("TEST PASSED");
+        }else{
+            System.out.println("TEST FAILED");
+        }
     }
 }
