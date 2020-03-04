@@ -17,8 +17,13 @@ public class FindElementsPractice {
        driver.get("http://practice.cybertekschool.com/sign_up");
        Thread.sleep(2000);
 
-       WebElement email=driver.findElement(By.name("full_name"));
-       email.sendKeys("sdet@gmai.com");
+       WebElement fullName=driver.findElement(By.name("full_name"));
+       fullName.sendKeys("Ali");
+
+       Thread.sleep(2000);
+
+       WebElement email=driver.findElement(By.name("email"));
+       email.sendKeys("ksk@gmail.com");
 
        Thread.sleep(2000);
 
@@ -26,7 +31,20 @@ public class FindElementsPractice {
        // When you see type="submit" you can use submit() instead of click()
        // it make sense to use when click() method doesn't work
 
-       signUp.submit();
+       signUp.click();
+
+       String expected="Thank you for signing up. Click the button below to return to the home page.";
+
+       WebElement message=driver.findElement(By.className("subheader"));
+       String actual=message.getText();
+
+       if(expected.equals(actual)){
+           System.out.println("TEST PASSED");
+       }else{
+           System.out.println("TEST FAILED");
+       }
+
+       Thread.sleep(2000);
 
        driver.quit(); // close everything
    }
