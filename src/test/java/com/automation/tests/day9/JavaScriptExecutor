@@ -1,0 +1,10 @@
+
+// casting the WebDriver instance to a JavaScriptExecutor
+
+JavascriptExecutor js=(JavascriptExecutor) driver;
+
+// JavascriptExecutor interface provides the executeScript() method to which we need
+// to pass the JavaScript code
+
+String title = (String) js.executeScript("return document.title");
+
