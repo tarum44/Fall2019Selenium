@@ -11,6 +11,7 @@ Waits from Selenium:
    -- explicit wait
    -- fluent wait
 
+------------------------------------IMPLICIT WAIT------------------------------------
 implicit wait -- apply only once at the beginning of test execution. If works before findElement method automatically.
 If WebDriver cannot find an element in the DOM, it waits for defined amount of time for the element to appear in the DOM.
 Once specified wait time is over, and element is not found, in specified time, it will throw NoSuchElementException.
@@ -26,3 +27,51 @@ driver.manage().timeouts().implicitlyWait(time, time units);
 driver.manage().timeouts().implicitlyWait(20, TimeUnits.SECONDS);
 
 That means WebDriver, will be waiting for any element up to 20 seconds.
+
+
+
+------------------------------------EXPLICIT WAIT------------------------------------
+
+Explicit wait -- provides better way to wait over implicit wait. Unlike implicit wait, you can write and use
+pre-defined conditions or custom conditions before proceeding further.
+
+Explicit wait -- exact condition and exact element. Implicit wait -- only one condition (presence of element in the DOM)
+and it applies for every findElement() method invocation.
+
+How to implement Explicit wait???
+
+For this, we use WebDriverWait class
+
+WebDriverWait wait= new WebDriverWait(driver,time in seconds);
+
+Then, we have ExpectedConditions class provides a set of predefined conditions to wait for before proceeding further
+
+some common explicit wait conditions:
+
+elementToBeClickable()
+visibilityOf()
+presenceOfLocatedElement()
+titleContains()
+
+Example:
+
+WebElement buttonElement = driver.findElement(By.xpath("//button[6]"));
+
+WebDriverWait wait = new WebDriverWait(driver, 10);
+wait.until(ExpectedConditions.elementToBeClickable(buttonElement));
+
+this wait means : wait for up to 10 seconds, until button becomes eligible to click
+
+WebDriverWait has a default polling time -- 500 milliseconds. It means, that WebDriver
+is checking every 500 milliseconds if condition is true
+
+Explict wait -- it's an individual approach. Wheres Implicit -- is general approach.
+
+Implicit wait -- we use only once
+Explicit wait -- as many times as we need.
+
+
+
+
+
+
