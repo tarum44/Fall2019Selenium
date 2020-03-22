@@ -70,6 +70,16 @@ Explict wait -- it's an individual approach. Wheres Implicit -- is general appro
 Implicit wait -- we use only once
 Explicit wait -- as many times as we need.
 
+If condition failed, webdriver throws exception.
+
+
+------------------------------------FLUENT WAIT------------------------------------
+
+It is a custom explicit wait. With Fluent wait we can define the maximum amount of wait time of condition and element
+as well as frequency with which to check for the condition (polling time).
+
+For explicit wait, polling time is always 500 miliseconds. In fluent wait,
+
 
 
 
