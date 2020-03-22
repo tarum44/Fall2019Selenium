@@ -1,0 +1,28 @@
+Synchronization issues are very common in selenium webdriver. To overcome these issues we use waits.
+
+As of now, we have used only one thing to slow down our script --
+Thread.sleep()
+
+Disadvantage of this method --- we do not really know how much our script need -- sometimes 3,4,5 seconds
+
+Waits from Selenium:
+
+   -- implicit wait
+   -- explicit wait
+   -- fluent wait
+
+implicit wait -- apply only once at the beginning of test execution. If works before findElement method automatically.
+If WebDriver cannot find an element in the DOM, it waits for defined amount of time for the element to appear in the DOM.
+Once specified wait time is over, and element is not found, in specified time, it will throw NoSuchElementException.
+
+Defualt implicit wait is -- 0 seconds;
+
+When implicit wait has been applied, WebDriver will try to look up for element in the specified period of time. If element
+was found faster, execution will  be resumed.
+
+How to use implicit wait?
+
+driver.manage().timeouts().implicitlyWait(time, time units);
+driver.manage().timeouts().implicitlyWait(20, TimeUnits.SECONDS);
+
+That means WebDriver, will be waiting for any element up to 20 seconds.

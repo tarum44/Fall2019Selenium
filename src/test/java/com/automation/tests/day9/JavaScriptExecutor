@@ -8,3 +8,8 @@ JavascriptExecutor js=(JavascriptExecutor) driver;
 
 String title = (String) js.executeScript("return document.title");
 
+JavaScriptExecutor -- interface that allows to execute JavaScript code as a part of our selenium script
+
+JavaScript -- used for front-end development, and supported by every browser and website. If, something doesn't work
+in selenium, we can do it with JavaScriptExecutor. For example: click, scroll, text input.
+
